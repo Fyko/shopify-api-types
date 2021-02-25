@@ -1,4 +1,4 @@
-import { Report } from '../payloads/analytics';
+import type { Report } from '../payloads/analytics';
 
 export interface GetReportsQuery {
 	/**

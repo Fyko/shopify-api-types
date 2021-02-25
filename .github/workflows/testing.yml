@@ -1,0 +1,29 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+jobs:
+  testing:
+    name: ESLint and TypeScript compilation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run ESLint
+        run: yarn test:lint
+
+      - name: Run TSC
+        run: yarn build:ci

@@ -24,4 +24,21 @@ export const Routes = {
 	storefrontAccessToken(id: number) {
 		return `/admin/api/2021-01/storefront_access_tokens/${id}.json` as const;
 	},
+	/**
+	 * Route for:
+	 * - GET  `/admin/api/2021-01/reports.json`
+	 * - POST `/admin/api/2021-01/reports.json`
+	 */
+	reports() {
+		return '/admin/api/2021-01/reports.json' as const;
+	},
+	/**
+	 * Route for:
+	 * - GET    `/admin/api/2021-01/reports/{report.id}.json`
+	 * - PUT    `/admin/api/2021-01/reports/{report.id}.json`
+	 * - DELETE `/admin/api/2021-01/reports/{report.id}.json`
+	 */
+	report(id: number) {
+		return `/admin/api/2021-01/reports/${id}.json` as const;
+	},
 };

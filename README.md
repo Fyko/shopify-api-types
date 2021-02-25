@@ -21,7 +21,7 @@ The exports of each API version is split into three main parts:
 
 - Endpoint options will follow the following structure: `<HTTP Method><Type><Query|JSONBody|Result>` where the type represents what it will return.
 
-  - For example, `GETAPIProductsResult` or `GETAPIProductsQuery`.
+  - For example, `GETProductsResult` or `GETProductsQuery`.
 
 - If a type ends with `Result`, then it represents the expected result by calling its accompanying route.
 

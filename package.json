@@ -66,10 +66,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fyko/twitter-api-types"
+		"url": "https://github.com/fyko/shopify-api-types"
 	},
 	"bugs": {
-		"url": "https://github.com/fyko/twitter-api-types/issues"
+		"url": "https://github.com/fyko/shopify-api-types/issues"
 	},
 	"husky": {
 		"hooks": {

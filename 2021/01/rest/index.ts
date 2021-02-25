@@ -1,4 +1,6 @@
 export * from './access';
+export * from './analytics';
+export * from './billing';
 
 export const APIVersion = '2021-01';
 export const Routes = {

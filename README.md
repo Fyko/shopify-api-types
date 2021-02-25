@@ -1,9 +1,9 @@
 <div style="text-align:center;"><h1>Shopify API Types</h1></div>
 
 [![GitHub](https://img.shields.io/github/license/fyko/shopify-api-types)](https://github.com/fyko/shopify-api-types/blob/main/LICENSE.md)
-[![npm](https://img.shields.io/npm/v/twitter-api-types?color=crimson&logo=npm)](https://www.npmjs.com/package/shopify-api-types)
+[![npm](https://img.shields.io/npm/v/shopify-api-types?color=crimson&logo=npm)](https://www.npmjs.com/package/shopify-api-types)
 
-Simple type definitions for the [Shopify Admin API](https://developer.twitter.com/en/docs/api-reference-index).
+Simple type definitions for the [Shopify Admin API](https://shopify.dev/docs/admin-api).
 
 ## Installation
 

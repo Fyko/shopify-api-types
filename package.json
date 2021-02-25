@@ -18,6 +18,7 @@
 		"preinstall": "npx only-allow yarn",
 		"prepublishOnly": "run-s clean test:lint build:node",
 		"postpublish": "run-s clean:node",
+		"build:ci": "tsc --noEmit --incremental false",
 		"build:node": "tsc && run-p esm:*",
 		"esm:common": "gen-esm-wrapper ./common/index.js ./common/index.mjs",
 		"esm:default": "gen-esm-wrapper ./default/index.js ./default/index.mjs",

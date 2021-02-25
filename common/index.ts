@@ -4,3 +4,10 @@ export interface TestInterface {
 	 */
 	test: true | null;
 }
+
+export interface FieldQueryInterface {
+	/**
+	 * A comma-separated list of fields to include in the response
+	 */
+	fields?: string;
+}

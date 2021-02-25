@@ -41,4 +41,42 @@ export const Routes = {
 	report(id: number) {
 		return `/admin/api/2021-01/reports/${id}.json` as const;
 	},
+	/**
+	 * Route for:
+	 * - GET  `/admin/api/2021-01/recurring_application_charges.json`
+	 * - POST `/admin/api/2021-01/recurring_application_charges.json`
+	 */
+	recurringApplicationCharges() {
+		return '/admin/api/2021-01/recurring_application_charges.json' as const;
+	},
+	/**
+	 * Route for:
+	 * - GET    `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}.json`
+	 * - DELETE `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}.json`
+	 */
+	recurringApplicationCharge(id: number) {
+		return `/admin/api/2021-01/recurring_application_charges/${id}.json` as const;
+	},
+	/**
+	 * Route for:
+	 * - PUT `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/customize.json`
+	 */
+	customizeRecurringApplicationCharge(id: number) {
+		return `/admin/api/2021-01/recurring_application_charges/${id}/customize.json` as const;
+	},
+	/**
+	 * Route for:
+	 * - GET `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
+	 * - POST `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
+	 */
+	usageCharges(recurringApplicationChargeId: number) {
+		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}/usage_charges.json` as const;
+	},
+	/**
+	 * Route for:
+	 * - GET `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges/{usage_charge.id}.json`
+	 */
+	usageCharge(recurringApplicationChargeId: number, usageChargeId: number) {
+		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}/usage_charges/${usageChargeId}.json` as const;
+	},
 };

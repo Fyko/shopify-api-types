@@ -1,0 +1,113 @@
+{
+	"name": "shopify-api-types",
+	"version": "0.0.1-alpha",
+	"description": "typings for Shopify Admin API",
+	"main": "./default/index.js",
+	"types": "./default/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./default/index.js",
+			"import": "./default/index.mjs"
+		},
+		"./2021/1": {
+			"require": "./2020/01/index.js",
+			"import": "./2020/01/index.mjs"
+		}
+	},
+	"scripts": {
+		"preinstall": "npx only-allow yarn",
+		"prepublishOnly": "run-s clean test:lint build:node",
+		"postpublish": "run-s clean:node",
+		"build:node": "tsc && run-p esm:*",
+		"esm:common": "gen-esm-wrapper ./common/index.js ./common/index.mjs",
+		"esm:default": "gen-esm-wrapper ./default/index.js ./default/index.mjs",
+		"esm:2020:01": "gen-esm-wrapper ./2020/01/index.js ./2020/01/index.mjs",
+		"lint": "eslint --fix --ext mjs,js,ts {20*,default,common}/**",
+		"test:lint": "eslint --ext mjs,js,ts {20*,default,common}/**",
+		"clean": "run-p clean:*",
+		"clean:node": "rimraf {20*,default,common}/**/*.{js,mjs,d.ts,map}"
+	},
+	"keywords": [
+		"shopify",
+		"shopify api",
+		"shopify admin",
+		"shopify admin api",
+		"types"
+	],
+	"author": "Carter Himmel <me@fyko.net>",
+	"license": "MIT",
+	"files": [
+		"v*/*",
+		"default/*",
+		"common/*",
+		"!**/*.ts",
+		"**/*.d.ts"
+	],
+	"engines": {
+		"node": ">=12"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^11.0.0",
+		"@commitlint/config-angular": "^11.0.0",
+		"@typescript-eslint/eslint-plugin": "^4.10.0",
+		"@typescript-eslint/parser": "^4.10.0",
+		"eslint": "^7.15.0",
+		"eslint-config-marine": "^7.2.0",
+		"eslint-config-prettier": "^7.0.0",
+		"eslint-plugin-prettier": "^3.1.3",
+		"gen-esm-wrapper": "^1.1.1",
+		"husky": "^4.3.6",
+		"lint-staged": "^10.5.3",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.2.1",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.1.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fyko/twitter-api-types"
+	},
+	"bugs": {
+		"url": "https://github.com/fyko/twitter-api-types/issues"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-angular"
+		],
+		"rules": {
+			"type-enum": [
+				2,
+				"always",
+				[
+					"chore",
+					"build",
+					"ci",
+					"docs",
+					"feat",
+					"fix",
+					"perf",
+					"refactor",
+					"revert",
+					"style",
+					"test",
+					"types",
+					"wip"
+				]
+			],
+			"scope-case": [
+				1,
+				"always",
+				"pascal-case"
+			]
+		}
+	}
+}

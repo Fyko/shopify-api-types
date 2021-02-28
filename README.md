@@ -21,7 +21,7 @@ The exports of each API version is split into three main parts:
 
 - Endpoint options will follow the following structure: `<HTTP Method><Type><Query|JSONBody|Result>` where the type represents what it will return.
 
-  - For example, `GETProductsResult` or `GETProductsQuery`.
+  - For example, `GetProductsResult` or `GetProductsQuery`.
 
 - If a type ends with `Result`, then it represents the expected result by calling its accompanying route.
 
@@ -55,6 +55,15 @@ const { Customer } = require('shopify-api-types/2020/01');
 ```ts
 // TypeScript/ES Module support
 import { Customer } from 'shopify-api-types/2020/01';
+```
+
+### Utilizing built-in routes
+
+All routes returned by the `Routes` object do **not** include the `/api/admin/20**/**` path. To do so, you must run the route through the `buildRoute` function.
+```ts
+import { Routes, buildRoute } from 'shopify-api-types/2020/01';
+
+const customersRoute = buildRoute(Routes.customers());
 ```
 
 ## Honorable Mentions

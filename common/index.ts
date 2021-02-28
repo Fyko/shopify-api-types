@@ -1,3 +1,9 @@
+import { APIVersion } from '../default';
+
+export function buildRoute(route: string, version = APIVersion): string {
+	return `/admin/api/${version}${route}`;
+}
+
 export interface TestInterface {
 	/**
 	 * Whether or not the object is a test

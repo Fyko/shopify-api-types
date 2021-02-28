@@ -9,79 +9,81 @@ export const Routes = {
 	/**
 	 * Route for:
 	 * - GET `/admin/oauth/access_scopes.json`
+	 *
+	 * @remarks This route should NOT be ran through the buildRoute function.
 	 */
 	accessScopes() {
 		return '/admin/oauth/access_scopes.json' as const;
 	},
 	/**
 	 * Route for:
-	 * - GET  `/admin/api/2021-01/storefront_access_tokens.json`
-	 * - POST `/admin/api/2021-01/storefront_access_tokens.json`
+	 * - GET  `/storefront_access_tokens.json`
+	 * - POST `/storefront_access_tokens.json`
 	 */
 	storefrontAccessTokens() {
-		return `/admin/api/2021-01/storefront_access_tokens.json` as const;
+		return `/storefront_access_tokens.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - DELETE `/admin/api/2021-01/storefront_access_tokens/{storefront_access_token.id}.json `
+	 * - DELETE `/storefront_access_tokens/{storefront_access_token.id}.json `
 	 */
 	storefrontAccessToken(storefrontAccessTokenId: number) {
-		return `/admin/api/2021-01/storefront_access_tokens/${storefrontAccessTokenId}.json` as const;
+		return `/storefront_access_tokens/${storefrontAccessTokenId}.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - GET  `/admin/api/2021-01/reports.json`
-	 * - POST `/admin/api/2021-01/reports.json`
+	 * - GET  `/reports.json`
+	 * - POST `/reports.json`
 	 */
 	reports() {
-		return '/admin/api/2021-01/reports.json' as const;
+		return '/reports.json' as const;
 	},
 	/**
 	 * Route for:
-	 * - GET    `/admin/api/2021-01/reports/{report.id}.json`
-	 * - PUT    `/admin/api/2021-01/reports/{report.id}.json`
-	 * - DELETE `/admin/api/2021-01/reports/{report.id}.json`
+	 * - GET    `/reports/{report.id}.json`
+	 * - PUT    `/reports/{report.id}.json`
+	 * - DELETE `/reports/{report.id}.json`
 	 */
 	report(reportId: number) {
-		return `/admin/api/2021-01/reports/${reportId}.json` as const;
+		return `/reports/${reportId}.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - GET  `/admin/api/2021-01/recurring_application_charges.json`
-	 * - POST `/admin/api/2021-01/recurring_application_charges.json`
+	 * - GET  `/recurring_application_charges.json`
+	 * - POST `/recurring_application_charges.json`
 	 */
 	recurringApplicationCharges() {
-		return '/admin/api/2021-01/recurring_application_charges.json' as const;
+		return '/recurring_application_charges.json' as const;
 	},
 	/**
 	 * Route for:
-	 * - GET    `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}.json`
-	 * - DELETE `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}.json`
+	 * - GET    `/recurring_application_charges/{recurring_application_charge.id}.json`
+	 * - DELETE `/recurring_application_charges/{recurring_application_charge.id}.json`
 	 */
 	recurringApplicationCharge(recurringApplicationChargeId: number) {
-		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}.json` as const;
+		return `/recurring_application_charges/${recurringApplicationChargeId}.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - PUT `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/customize.json`
+	 * - PUT `/recurring_application_charges/{recurring_application_charge.id}/customize.json`
 	 */
 	customizeRecurringApplicationCharge(recurringApplicationChargeId: number) {
-		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}/customize.json` as const;
+		return `/recurring_application_charges/${recurringApplicationChargeId}/customize.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - GET `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
-	 * - POST `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
+	 * - GET `/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
+	 * - POST `/recurring_application_charges/{recurring_application_charge.id}/usage_charges.json`
 	 */
 	usageCharges(recurringApplicationChargeId: number) {
-		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}/usage_charges.json` as const;
+		return `/recurring_application_charges/${recurringApplicationChargeId}/usage_charges.json` as const;
 	},
 	/**
 	 * Route for:
-	 * - GET `/admin/api/2021-01/recurring_application_charges/{recurring_application_charge.id}/usage_charges/{usage_charge.id}.json`
+	 * - GET `/recurring_application_charges/{recurring_application_charge.id}/usage_charges/{usage_charge.id}.json`
 	 */
 	usageCharge(recurringApplicationChargeId: number, usageChargeId: number) {
-		return `/admin/api/2021-01/recurring_application_charges/${recurringApplicationChargeId}/usage_charges/${usageChargeId}.json` as const;
+		return `/recurring_application_charges/${recurringApplicationChargeId}/usage_charges/${usageChargeId}.json` as const;
 	},
 	/**
 	 * Route for:

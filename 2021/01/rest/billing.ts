@@ -1,4 +1,4 @@
-import type { FieldQueryInterface } from '../../../common';
+import type { EmptyResponse, FieldQueryInterface } from '../../../common';
 import type {
 	ApplicationCharge,
 	ApplicationCredit,
@@ -113,7 +113,7 @@ export interface GetRecurringApplicationChargesQyery extends FieldQueryInterface
 /**
  * https://shopify.dev/docs/admin-api/rest/reference/billing/recurringapplicationcharge#destroy-2021-01
  */
-export type DeleteRecurringApplicationChargeResult = never;
+export type DeleteRecurringApplicationChargeResult = EmptyResponse;
 
 /**
  * https://shopify.dev/docs/admin-api/rest/reference/billing/recurringapplicationcharge#update-2021-01

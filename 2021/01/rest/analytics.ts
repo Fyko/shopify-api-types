@@ -1,3 +1,4 @@
+import type { EmptyResponse } from '../../../common';
 import type { Report } from '../payloads/analytics';
 
 export interface GetReportsQuery {
@@ -64,4 +65,4 @@ export interface PutReportResult {
 /**
  * https://shopify.dev/docs/admin-api/rest/reference/analytics/report#destroy-2021-01
  */
-export type DeleteReportResult = never;
+export type DeleteReportResult = EmptyResponse;

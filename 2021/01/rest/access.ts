@@ -1,3 +1,4 @@
+import type { EmptyResponse } from '../../../common';
 import type { AccessScope, StorefrontAccessToken } from '../payloads';
 
 /**
@@ -17,7 +18,7 @@ export interface PostStorefrontAccessTokenResult {
 /**
  * https://shopify.dev/docs/admin-api/rest/reference/access/storefrontaccesstoken#destroy-2021-01
  */
-export type DeleteStorefrontAccessTokenResult = never;
+export type DeleteStorefrontAccessTokenResult = EmptyResponse;
 
 /**
  * https://shopify.dev/docs/admin-api/rest/reference/access/storefrontaccesstoken#index-2021-01

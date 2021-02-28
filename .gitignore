@@ -118,6 +118,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+docs/
+docs.json
 
 # Don't commit build outputs
 

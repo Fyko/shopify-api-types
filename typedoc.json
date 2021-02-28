@@ -1,0 +1,15 @@
+{
+	"out": "./docs/",
+	"readme": "./README.md",
+	"name": "Shopify API Types",
+	"entryPoints": [
+		"2021/01/index.ts",
+		"common/index.ts"
+	],
+	"exclude": [
+		"**/node_modules/**",
+		"default/**"
+	],
+	"tsconfig": "./tsconfig.json",
+	"json": "./docs.json"
+}

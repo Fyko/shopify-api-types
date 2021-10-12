@@ -1,6 +1,6 @@
 {
 	"name": "shopify-api-types",
-	"version": "0.0.4-alpha",
+	"version": "0.0.5-alpha",
 	"description": "typings for Shopify Admin API",
 	"main": "./default/index.js",
 	"types": "./default/index.d.ts",

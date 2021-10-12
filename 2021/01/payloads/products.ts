@@ -439,10 +439,11 @@ export interface ProductVariantOption {
 	option3?: string;
 }
 
-interface BasePrice {
+export interface BasePrice {
 	amount: string;
 	currency_code: CurrencyCode;
 }
+
 export interface ProductVariantPresentmentPrices {
 	price: BasePrice;
 	compare_at_price?: BasePrice;

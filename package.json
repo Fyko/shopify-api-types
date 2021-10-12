@@ -15,7 +15,6 @@
 		}
 	},
 	"scripts": {
-		"preinstall": "npx only-allow yarn",
 		"prepublishOnly": "run-s clean test:lint build:node",
 		"postpublish": "run-s clean:node",
 		"build:ci": "tsc --noEmit --incremental false",

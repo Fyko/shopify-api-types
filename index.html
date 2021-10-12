@@ -1,172 +1,65 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Shopify API Types</title>
-	<meta name="description" content="Documentation for Shopify API Types">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">Shopify API Types</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>Shopify API Types</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<div style="text-align:center;"><h1>Shopify API Types</h1></div>
-				<p><a href="https://github.com/fyko/shopify-api-types/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/fyko/shopify-api-types" alt="GitHub"></a>
-					<a href="https://www.npmjs.com/package/shopify-api-types"><img src="https://img.shields.io/npm/v/shopify-api-types?color=crimson&logo=npm" alt="npm"></a>
-					<a href="https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml"><img src="https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml/badge.svg" alt="Testing"></a>
-				<a href="https://fyko.github.io/shopify-api-types/modules/2021_01.html"><img src="https://img.shields.io/badge/Documentation-Deployed%20on%20Github%20Pages-brightgreen" alt="docs"></a></p>
-				<p>Simple type definitions for the <a href="https://shopify.dev/docs/admin-api">Shopify Admin API</a>.</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<p>Install with <a href="https://www.npmjs.com/">npm</a> / <a href="https://yarnpkg.com">yarn</a> / <a href="https://pnpm.js.org/">pnpm</a>:</p>
-				<pre><code class="language-sh"><span style="color: #000000">npm install shopify-api-types</span>
-<span style="color: #000000">yarn add shopify-api-types</span>
-<span style="color: #000000">pnpm add shopify-api-types</span>
-</code></pre>
-				<a href="#project-structure" id="project-structure" style="color: inherit; text-decoration: none;">
-					<h2>Project Structure</h2>
-				</a>
-				<p>The exports of each API version is split into three main parts:</p>
-				<ul>
-					<li><p>Endpoint options will follow the following structure: <code>&lt;HTTP Method&gt;&lt;Type&gt;&lt;Query|JSONBody|Result&gt;</code> where the type represents what it will return.</p>
-						<ul>
-							<li>For example, <code>GetProductsResult</code> or <code>GetProductsQuery</code>.</li>
-						</ul>
-					</li>
-					<li><p>If a type ends with <code>Result</code>, then it represents the expected result by calling its accompanying route.</p>
-						<ul>
-							<li>Types that are exported as <code>never</code> usually mean the result will be a <code>204 No Content</code>, so you can safely ignore it. This does <strong>not</strong> account for errors.</li>
-						</ul>
-					</li>
-					<li><p>Anything else that is miscellaneous will be exported based on what it represents (for example the <code>REST</code> route object).</p>
-					</li>
-					<li><p>There may be types exported that are identical for all versions. These will be exported as is and can be found in the <code>common</code> directory. They will still be prefixed accordingly as described above.</p>
-					</li>
-				</ul>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<p>You can <code>require</code> / <code>import</code> the module directly, which will give you the latest types as of the current API version. This is considered the <code>default</code> version and will be updated according to Shopify&#39;s default API version; this means it may break at any point in time.</p>
-				<blockquote>
-					<p>We <strong>strongly recommend</strong> you use a version when importing this module! This will prevent breaking changes when updating the module.</p>
-				</blockquote>
-				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Customer</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;shopify-api-types&#039;</span><span style="color: #000000">);</span>
-</code></pre>
-				<pre><code class="language-ts"><span style="color: #008000">// TypeScript/ES Module support</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Customer</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;shopify-api-types&#039;</span><span style="color: #000000">;</span>
-</code></pre>
-				<p>You should instead consider adding the API version you want to target by appending <code>/20**/**</code>, where the first <code>**</code> represents the API year version and the second <code>**</code> represents the API month version (ask Shopify why they version their API like this).</p>
-				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Customer</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;shopify-api-types/2020/01&#039;</span><span style="color: #000000">);</span>
-</code></pre>
-				<pre><code class="language-ts"><span style="color: #008000">// TypeScript/ES Module support</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Customer</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;shopify-api-types/2020/01&#039;</span><span style="color: #000000">;</span>
-</code></pre>
-				<a href="#utilizing-built-in-routes" id="utilizing-built-in-routes" style="color: inherit; text-decoration: none;">
-					<h3>Utilizing built-in routes</h3>
-				</a>
-				<p>All routes returned by the <code>Routes</code> object do <strong>not</strong> include the <code>/api/admin/20**/**</code> path. To do so, you must run the route through the <code>buildRoute</code> function.</p>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Routes</span><span style="color: #000000">, </span><span style="color: #001080">buildRoute</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;shopify-api-types/2020/01&#039;</span><span style="color: #000000">;</span>
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Shopify API Types</title><meta name="description" content="Documentation for Shopify API Types"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Shopify API Types</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> Shopify API Types</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography"><div style="text-align:center;"><h1>Shopify API Types</h1></div>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">customersRoute</span><span style="color: #000000"> = </span><span style="color: #795E26">buildRoute</span><span style="color: #000000">(</span><span style="color: #001080">Routes</span><span style="color: #000000">.</span><span style="color: #795E26">customers</span><span style="color: #000000">());</span>
+<p><a href="https://github.com/fyko/shopify-api-types/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/fyko/shopify-api-types" alt="GitHub"></a>
+<a href="https://www.npmjs.com/package/shopify-api-types"><img src="https://img.shields.io/npm/v/shopify-api-types?color=crimson&logo=npm" alt="npm"></a>
+<a href="https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml"><img src="https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml/badge.svg" alt="Testing"></a>
+<a href="https://fyko.github.io/shopify-api-types/modules/2021_01.html"><img src="https://img.shields.io/badge/Documentation-Deployed%20on%20Github%20Pages-brightgreen" alt="docs"></a></p>
+<p>Simple type definitions for the <a href="https://shopify.dev/docs/admin-api">Shopify Admin API</a>.</p>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p>Install with <a href="https://www.npmjs.com/">npm</a> / <a href="https://yarnpkg.com">yarn</a> / <a href="https://pnpm.js.org/">pnpm</a>:</p>
+<pre><code class="language-sh"><span class="hl-0">npm install shopify-api-types</span><br/><span class="hl-0">yarn add shopify-api-types</span><br/><span class="hl-0">pnpm add shopify-api-types</span>
 </code></pre>
-				<a href="#honorable-mentions" id="honorable-mentions" style="color: inherit; text-decoration: none;">
-					<h2>Honorable Mentions</h2>
-				</a>
-				<p>Thanks to <a href="https://github.com/vladfrangu">Vlad</a>&#39;s <a href="https://github.com/discordjs/discord-api-types"><code>discord-api-types</code></a> over at <a href="https://github.com/discordjs">Discord.js</a> for the file structure/flow/etc.</p>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Modules</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/2021_01.html">2021/01</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/common.html">common</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+
+<a href="#project-structure" id="project-structure" style="color: inherit; text-decoration: none;">
+  <h2>Project Structure</h2>
+</a>
+<p>The exports of each API version is split into three main parts:</p>
+<ul>
+<li><p>Endpoint options will follow the following structure: <code>&lt;HTTP Method&gt;&lt;Type&gt;&lt;Query|JSONBody|Result&gt;</code> where the type represents what it will return.</p>
+<ul>
+<li>For example, <code>GetProductsResult</code> or <code>GetProductsQuery</code>.</li>
+</ul>
+</li>
+<li><p>If a type ends with <code>Result</code>, then it represents the expected result by calling its accompanying route.</p>
+<ul>
+<li>Types that are exported as <code>never</code> usually mean the result will be a <code>204 No Content</code>, so you can safely ignore it. This does <strong>not</strong> account for errors.</li>
+</ul>
+</li>
+<li><p>Anything else that is miscellaneous will be exported based on what it represents (for example the <code>REST</code> route object).</p>
+</li>
+<li><p>There may be types exported that are identical for all versions. These will be exported as is and can be found in the <code>common</code> directory. They will still be prefixed accordingly as described above.</p>
+</li>
+</ul>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<p>You can <code>require</code> / <code>import</code> the module directly, which will give you the latest types as of the current API version. This is considered the <code>default</code> version and will be updated according to Shopify&#39;s default API version; this means it may break at any point in time.</p>
+<blockquote>
+<p>We <strong>strongly recommend</strong> you use a version when importing this module! This will prevent breaking changes when updating the module.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> { </span><span class="hl-2">Customer</span><span class="hl-0"> } = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;shopify-api-types&#39;</span><span class="hl-0">);</span>
+</code></pre>
+<pre><code class="language-ts"><span class="hl-5">// TypeScript/ES Module support</span><br/><span class="hl-6">import</span><span class="hl-0"> { </span><span class="hl-7">Customer</span><span class="hl-0"> } </span><span class="hl-6">from</span><span class="hl-0"> </span><span class="hl-4">&#39;shopify-api-types&#39;</span><span class="hl-0">;</span>
+</code></pre>
+<p>You should instead consider adding the API version you want to target by appending <code>/20**/**</code>, where the first <code>**</code> represents the API year version and the second <code>**</code> represents the API month version (ask Shopify why they version their API like this).</p>
+<pre><code class="language-js"><span class="hl-1">const</span><span class="hl-0"> { </span><span class="hl-2">Customer</span><span class="hl-0"> } = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;shopify-api-types/2020/01&#39;</span><span class="hl-0">);</span>
+</code></pre>
+<pre><code class="language-ts"><span class="hl-5">// TypeScript/ES Module support</span><br/><span class="hl-6">import</span><span class="hl-0"> { </span><span class="hl-7">Customer</span><span class="hl-0"> } </span><span class="hl-6">from</span><span class="hl-0"> </span><span class="hl-4">&#39;shopify-api-types/2020/01&#39;</span><span class="hl-0">;</span>
+</code></pre>
+
+<a href="#utilizing-built-in-routes" id="utilizing-built-in-routes" style="color: inherit; text-decoration: none;">
+  <h3>Utilizing built-in routes</h3>
+</a>
+<p>All routes returned by the <code>Routes</code> object do <strong>not</strong> include the <code>/api/admin/20**/**</code> path. To do so, you must run the route through the <code>buildRoute</code> function.</p>
+<pre><code class="language-ts"><span class="hl-6">import</span><span class="hl-0"> { </span><span class="hl-7">Routes</span><span class="hl-0">, </span><span class="hl-7">buildRoute</span><span class="hl-0"> } </span><span class="hl-6">from</span><span class="hl-0"> </span><span class="hl-4">&#39;shopify-api-types/2020/01&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">customersRoute</span><span class="hl-0"> = </span><span class="hl-3">buildRoute</span><span class="hl-0">(</span><span class="hl-7">Routes</span><span class="hl-0">.</span><span class="hl-3">customers</span><span class="hl-0">());</span>
+</code></pre>
+
+<a href="#honorable-mentions" id="honorable-mentions" style="color: inherit; text-decoration: none;">
+  <h2>Honorable Mentions</h2>
+</a>
+<p>Thanks to <a href="https://github.com/vladfrangu">Vlad</a>&#39;s <a href="https://github.com/discordjs/discord-api-types"><code>discord-api-types</code></a> over at <a href="https://github.com/discordjs">Discord.js</a> for the file structure/flow/etc.</p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/2021_01.html">2021/01</a></li><li class=" tsd-kind-module"><a href="modules/common.html">common</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li><li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li><li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

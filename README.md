@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/shopify-api-types?color=crimson&logo=npm)](https://www.npmjs.com/package/shopify-api-types)
 [![Testing](https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml/badge.svg)](https://github.com/Fyko/shopify-api-types/actions/workflows/testing.yml)
 [![docs](https://img.shields.io/badge/Documentation-Deployed%20on%20Github%20Pages-brightgreen)](https://fyko.github.io/shopify-api-types/modules/2021_01.html)
+[![Rate on Openbase](https://badges.openbase.com/js/rating/shopify-api-types.svg)](https://openbase.com/js/shopify-api-types?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
 
 Simple type definitions for the [Shopify Admin API](https://shopify.dev/docs/admin-api).
 

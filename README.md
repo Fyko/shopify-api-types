@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This repository is deprecated and archived. It is reccomended to use Shopify's GraphQL API with generated typings.
+
 <div style="text-align:center;"><h1>Shopify API Types</h1></div>
 
 [![GitHub](https://img.shields.io/github/license/fyko/shopify-api-types)](https://github.com/fyko/shopify-api-types/blob/main/LICENSE.md)
